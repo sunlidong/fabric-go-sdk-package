@@ -130,7 +130,7 @@ func GetSignerFromCertFile(certFile string, csp core.CryptoSuite) (core.Key, cry
 func BCCSPKeyRequestGenerate(req *csr.CertificateRequest, myCSP core.CryptoSuite) (core.Key, crypto.Signer, error) {
 	log.Infof("generating key: %+v", req.KeyRequest)
 	keyOpts, err := getBCCSPKeyOpts(req.KeyRequest, false)
-	if err != nil {l
+	if err != nil {
 		return nil, nil, err
 	}
 	key, err := myCSP.KeyGen(keyOpts)
