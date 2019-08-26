@@ -42,6 +42,9 @@ type ChainTransactionQuery struct {
 	Datalist               []*Datalist            `json:"-"`
 	Asset                  Assets                 `json:"-"`
 	Ast                    AstInfo                `json:"AstInfo"`
+	Bst                    BaseSurveyT            `json:"BaseSurvey"`
+	Brt                    BaseReportT            `json:"BaseReport"`
+	Pat                    ProAttachmentlistT     `json:"ProAttachment"`
 }
 
 const (
@@ -308,3 +311,54 @@ type AstInfo struct {
 	// 单个应收账款的UUID
 	AstAssetsInfoUUID string `json:"uuid" pkey:""` //资产包UUID
 }
+
+// 尽调结果 集合 上链 T
+type BaseSurveyT struct {
+	BaseAsset
+	BaseType   `json:"-"`
+	BaseUser   `json:"-"`
+	BaseFetter `json:"-"`
+	IpfsHash   string `json:"ipfsHash"`
+	// 唯一标识
+	SurveyNo string `json:"surveyNo" pkey:""`
+	//所属资产信息
+	FMasterID string `json:fMasterID`
+}
+
+// 尽调报告 集合 上链
+type BaseReportT struct {
+	BaseAsset
+	BaseType   `json:"-"`
+	BaseUser   `json:"-"`
+	BaseFetter `json:"-"`
+	IpfsHash   string `json:"ipfsHash"`
+	ReportName string `json:"reportName"`
+	ReportType string `json:"reportType"`
+	// 唯一标识
+	ReportNo   string `json:"reportNo" pkey:""`
+	ReportTx   string `json:"reportTx"`
+	ReportMD   string `json:"reportMD"`
+	ReportAddr string `json:"reportAddr"`
+
+	//所属资产信息
+	FMasterID string `json:fMasterID`
+}
+
+// 其他附件
+type ProAttachmentlistT struct {
+	BaseAsset
+	BaseType      `json:"-"`
+	BaseUser      `json:"-"`
+	BaseFetter    `json:"-"`
+	IpfsHash      string `json:"ipfsHash"`
+	ProAttachName string `json:"proAttachName"`
+	ProAttachType string `json:"proAttachType"`
+	// 唯一标识
+	ProAttachNo   string `json:"proAttachNo" pkey:""`
+	ProAttachMD   string `json:"proAttachMD"`
+	ProAttachAddr string `json:"proAttachAddr"`
+
+	//所属资产信息
+	FMasterID string `json:fMasterID`
+}
+
