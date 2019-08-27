@@ -362,3 +362,30 @@ type ProAttachmentlistT struct {
 	FMasterID string `json:fMasterID`
 }
 
+// 类型 信息
+type BaseType struct {
+	BtType  string `json:"btType`
+	BtState string `json:"btState`
+}
+
+// user 信息  ，数据上传的信息
+type BaseUser struct {
+	//
+	BurUseName    string `json:"burUseName`
+	BurUseID      string `json:"burUseID`
+	BurUseOrgName string `json:"burUseOrgName`
+	BurUseOrgID   string `json:"burUseOrgID`
+	BurUseType    string `json:"burUseType`
+}
+
+//子资产信息关联主资产信息
+
+type BaseFetter struct {
+	FetUUID  string `json:"fetUUID`
+	FetTxID  string `json:"fetTxID`
+	FetTime  string `json:"fetTime`
+	FetTpye  string `json:"fetTpye`
+	FetBz    string `json:"fetBz`
+	FetState string `json:"fetState`
+}
+
