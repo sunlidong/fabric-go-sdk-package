@@ -45,6 +45,7 @@ type ChainTransactionQuery struct {
 	Bst                    BaseSurveyT            `json:"BaseSurvey"`
 	Brt                    BaseReportT            `json:"BaseReport"`
 	Pat                    ProAttachmentlistT     `json:"ProAttachment"`
+	Suf                    interface{}     `json:"data"`
 }
 
 const (
